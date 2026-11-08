@@ -1646,13 +1646,13 @@
 .logo>.g{color:#D7DADE;opacity:.42}
 .logo::before,.logo::after{content:"";position:absolute;left:50%;top:50%;width:100%;height:100%;border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%)}
 .logo.clickable{pointer-events:auto;cursor:pointer}
-.logo.clickable::after{border:1.5px solid rgba(206,255,28,.6);animation:logoping 2.2s cubic-bezier(.2,.7,.3,1) infinite}
+.logo.clickable::after{border:1.5px solid rgba(90,169,255,.6);animation:logoping 2.2s cubic-bezier(.2,.7,.3,1) infinite}
 @keyframes logoping{0%{opacity:.85;transform:translate(-50%,-50%) scale(.95)}70%,100%{opacity:0;transform:translate(-50%,-50%) scale(2.5)}}
 .logo>i{transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .3s ease}
 .logo.clickable:hover>i{transform:scale(1.1)}
 .logo.clickable:hover>.g{opacity:.75}
-.logo.burst::before{background:radial-gradient(circle,rgba(206,255,28,.5) 0%,rgba(206,255,28,.12) 40%,rgba(206,255,28,0) 70%);animation:logoburst .9s cubic-bezier(.12,.7,.3,1) both}
-.logo.burst::after{border:2px solid rgba(206,255,28,.8);animation:logoring .8s cubic-bezier(.12,.7,.3,1) both}
+.logo.burst::before{background:radial-gradient(circle,rgba(90,169,255,.5) 0%,rgba(90,169,255,.12) 40%,rgba(90,169,255,0) 70%);animation:logoburst .9s cubic-bezier(.12,.7,.3,1) both}
+.logo.burst::after{border:2px solid rgba(90,169,255,.8);animation:logoring .8s cubic-bezier(.12,.7,.3,1) both}
 @keyframes logoburst{0%{opacity:1;transform:translate(-50%,-50%) scale(.5)}100%{opacity:0;transform:translate(-50%,-50%) scale(7)}}
 @keyframes logoring{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(5)}}
 .logo.burst>.g{opacity:.9;transition:opacity .15s}
