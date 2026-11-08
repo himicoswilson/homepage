@@ -320,7 +320,11 @@ const BUTTERFLY_GRID = [
     "..............#######.......#######..............",
     "..............#######.......#######..............",
 ];
-const BUTTERFLY_CELL = 123 / BUTTERFLY_GRID.length;
+// 横向拉宽 10%：像素格子从正方形拉成宽矩形
+const BUTTERFLY_WIDE = 1.1;
+const BUTTERFLY_CELL_X = 123 / BUTTERFLY_GRID.length;
+const BUTTERFLY_CELL_Y = BUTTERFLY_CELL_X / BUTTERFLY_WIDE;
+const BUTTERFLY_Y_OFF = (123 - BUTTERFLY_GRID.length * BUTTERFLY_CELL_Y) / 2;
 // 横向合并连续格子，减少 rect 数量
 const BUTTERFLY_RUNS: { x: number; y: number; w: number }[] = [];
 BUTTERFLY_GRID.forEach((row, y) => {
@@ -329,14 +333,14 @@ BUTTERFLY_GRID.forEach((row, y) => {
         if (row[x] === "#") {
             const x0 = x;
             while (x < row.length && row[x] === "#") x++;
-            BUTTERFLY_RUNS.push({x: x0 * BUTTERFLY_CELL, y: y * BUTTERFLY_CELL, w: (x - x0) * BUTTERFLY_CELL});
+            BUTTERFLY_RUNS.push({x: x0 * BUTTERFLY_CELL_X, y: y * BUTTERFLY_CELL_Y + BUTTERFLY_Y_OFF, w: (x - x0) * BUTTERFLY_CELL_X});
         } else {
             x++;
         }
     }
 });
 const BUTTERFLY_PIXEL_SVG = BUTTERFLY_RUNS.map(
-    (r) => `<rect x="${r.x.toFixed(2)}" y="${r.y.toFixed(2)}" width="${r.w.toFixed(2)}" height="${BUTTERFLY_CELL.toFixed(2)}"/>`
+    (r) => `<rect x="${r.x.toFixed(2)}" y="${r.y.toFixed(2)}" width="${r.w.toFixed(2)}" height="${BUTTERFLY_CELL_Y.toFixed(2)}"/>`
 ).join("");
 // swarm 里被光标拖来拖去、上色的那个 logo：和下面的 <Logo/> 同形同色同光晕，最后无缝换成真的
 const LOGO_SWARM = {
@@ -394,7 +398,7 @@ const Logo = () => (
     <svg viewBox="0 0 123 123" aria-hidden="true" fill="currentColor" shapeRendering="crispEdges"
          className="w-8 h-8 md:w-10 md:h-10 text-accent drop-shadow-[0_0_12px_rgba(206,255,28,0.45)]">
         {BUTTERFLY_RUNS.map((r, i) => (
-            <rect key={i} x={r.x} y={r.y} width={r.w} height={BUTTERFLY_CELL} />
+            <rect key={i} x={r.x} y={r.y} width={r.w} height={BUTTERFLY_CELL_Y} />
         ))}
     </svg>
 );
