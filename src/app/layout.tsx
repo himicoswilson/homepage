@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The best software disappears into the gesture it’s for.",
+  title: "Small wings, long distances.",
   description: "HIMICOS — How I Make Ideas Come Out Slowly",
 };
 

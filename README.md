@@ -1,6 +1,6 @@
 # HIMICOS
 
-> The best software disappears into the gesture it’s for.
+> Small wings, long distances.
 
 Source of [himicos.com](https://himicos.com) — a tiny personal landing page with a real-time **ASCII video background** rendered by a WebGL shader, in the spirit of the old Midjourney homepage.
 

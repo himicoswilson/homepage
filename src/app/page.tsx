@@ -267,11 +267,20 @@ const WordsLine = ({fontSize}: { fontSize: number }) => (
     </div>
 );
 
-const LOGO_POINTS =
-    "91.08,49.15 122.88,49.15 122.88,73.73 91.08,73.73 113.58,96.23 96.15,113.58 73.73,91.08 73.73,122.88 49.15,122.88 49.15,91.08 26.64,113.58 9.3,96.23 31.72,73.73 0,73.73 0,49.15 31.72,49.15 9.3,26.73 26.64,9.3 49.15,31.72 49.15,0 73.73,0 73.73,31.72 96.24,9.3 113.58,26.64 91.08,49.15";
+// 蝴蝶 logo：上下两对翅膀 + 身体 + 头 + 触角尖（fill 部分与描边部分分开）
+const BUTTERFLY_FILL =
+    "M61.5,42 C74,14 96,4 108,12 C118,19 112,38 96,48 C84,55 70,56 61.5,54 Z " +
+    "M61.5,42 C49,14 27,4 15,12 C5,19 11,38 27,48 C39,55 53,56 61.5,54 Z " +
+    "M61.5,60 C78,58 94,62 94,72 C94,82 80,88 66,80 C62,76 61,68 61.5,60 Z " +
+    "M61.5,60 C45,58 29,62 29,72 C29,82 43,88 57,80 C61,76 62,68 61.5,60 Z " +
+    "M57.5,32 Q57.5,28 61.5,28 Q65.5,28 65.5,32 L65.5,84 Q65.5,88 61.5,88 Q57.5,88 57.5,84 Z " +
+    "M56,28 A5.5,5.5 0 1,1 67,28 A5.5,5.5 0 1,1 56,28 Z " +
+    "M44.8,10 A2.2,2.2 0 1,1 49.2,10 A2.2,2.2 0 1,1 44.8,10 Z " +
+    "M73.8,10 A2.2,2.2 0 1,1 78.2,10 A2.2,2.2 0 1,1 73.8,10 Z";
+const BUTTERFLY_ANTENNAE = "M59,24 C54,14 50,11 47,10 M64,24 C69,14 73,11 76,10";
 // swarm 里被光标拖来拖去、上色的那个 logo：和下面的 <Logo/> 同形同色同光晕，最后无缝换成真的
 const LOGO_SWARM = {
-    svg: `<svg viewBox="0 0 123 123" fill="currentColor"><polygon points="${LOGO_POINTS}"/></svg>`,
+    svg: `<svg viewBox="0 0 123 123" fill="currentColor"><path d="${BUTTERFLY_FILL}"/><path d="${BUTTERFLY_ANTENNAE}" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>`,
     color: "#ceff1c",
     glow: "drop-shadow(0 0 12px rgba(206,255,28,0.45))",
 };
@@ -324,7 +333,8 @@ function ClickPrompt() {
 const Logo = () => (
     <svg viewBox="0 0 123 123" aria-hidden="true" fill="currentColor"
          className="w-8 h-8 md:w-10 md:h-10 text-accent drop-shadow-[0_0_12px_rgba(206,255,28,0.45)]">
-        <polygon points={LOGO_POINTS}/>
+        <path d={BUTTERFLY_FILL}/>
+        <path d={BUTTERFLY_ANTENNAE} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round"/>
     </svg>
 );
 
@@ -737,7 +747,7 @@ export default function Home() {
                                             className="mt-2 pl-10 md:pl-12 font-mono text-[11px] leading-relaxed tracking-wide text-white/50"
                                             {...fadeUp(1.0, animated)}
                                         >
-                                            The best software disappears into the gesture it’s for.
+                                            Small wings, long distances.
                                         </motion.p>
                                     </div>
 
@@ -769,7 +779,7 @@ export default function Home() {
                                             className="font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-white/35 md:text-right"
                                             {...fadeUp(1.3, animated)}
                                         >
-                                            © HIMICOSWILSON@HIMICOS.COM
+                                            © BUTTERFLY@HIMICOS.COM
                                             <br/>
                                             not for sale, AI last.
                                         </motion.p>
