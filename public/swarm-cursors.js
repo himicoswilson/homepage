@@ -84,8 +84,8 @@
     "Ida", "Yukihiro", "Shafi", "Leslie", "Jean", "Vint", "Lynn", "Bram",
   ];
   const COLORS = [
-    "#F24E1E", "#A259FF", "#1ABCFE", "#0ACF83", "#FF7262", "#FFC700",
-    "#9747FF", "#E8467C", "#14AE5C", "#0D99FF", "#FF8A00", "#00B5CE",
+    "#F24E1E", "#A259FF", "#1ABCFE", "#5aa9ff", "#FF7262", "#FFC700",
+    "#9747FF", "#E8467C", "#7ab8ff", "#0D99FF", "#FF8A00", "#00B5CE",
   ];
   const BLUE = "#0D99FF";
   const RED = "#F24822";
