@@ -41,6 +41,4 @@ Deploys to himicos.com on every push to `main`. Add a repository secret `CLOUDFL
 
 [CC BY-SA 4.0](LICENSE) — adapted by himicoswilson from [uwu.cat](https://github.com/CtrlcvsNya/uwu.cat) by Ctrlcvs; you may share and adapt this work with attribution, under the same license.
 
-**Exception:** the background video `public/media/kitten-540p.mp4` is a re-encode of
-[“Kitten, Game, Pets”](https://pixabay.com/videos/kitten-game-pets-4216/) by MixailMixail from Pixabay,
-used under the [Pixabay Content License](https://pixabay.com/service/license-summary/). It is **not** covered by CC BY-SA.
+**Exception:** the background video `public/media/butterfly-720p.mp4` is a clip provided by himicoswilson. It is **not** covered by CC BY-SA.

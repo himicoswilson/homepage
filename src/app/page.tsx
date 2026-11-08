@@ -670,7 +670,7 @@ export default function Home() {
         <div className={`fixed inset-0 overflow-hidden overscroll-none touch-none select-none${fx ? " crt-jolt" : ""}`}>
             {/* 背景：字符视频，电视“开机”时开始“解码”扫描入场并播放（swarm 不拍它，用下面的黑屏替身） */}
             <div data-swarm-ignore="">
-                <AsciiVideo src="/media/kitten-540p.mp4" revealed={tv} playing={tv} className="fixed inset-0 z-0"/>
+                <AsciiVideo src="/media/butterfly-720p.mp4" revealed={tv} playing={tv} className="fixed inset-0 z-0"/>
             </div>
             {/* 第二轮重建时的“关着的电视”：一块玻璃屏 + 一条条复制出来的扫描线；开机时撤掉 */}
             {standIn && (
