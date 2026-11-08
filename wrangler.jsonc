@@ -15,6 +15,7 @@
   },
   // 绑定自定义域名（自动创建 DNS 记录和证书）
   "routes": [
-    { "pattern": "himicos.com", "custom_domain": true }
+    { "pattern": "himicos.com", "custom_domain": true },
+    { "pattern": "www.himicos.com", "custom_domain": true }
   ]
 }
