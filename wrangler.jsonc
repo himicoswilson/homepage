@@ -1,10 +1,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   // Next.js 静态导出 (out/) 作为 Worker 静态资源托管
-  "name": "uwu-cat",
+  "name": "himicos",
   "compatibility_date": "2026-11-01",
   // 账号 ID 不是凭据，可以公开；部署凭据是 CI 里的 CLOUDFLARE_API_TOKEN secret
-  "account_id": "b5f0961d7c60650f2924a68edc432dfd",
+  "account_id": "a3fd8cb83f27c2d5bae9f3ef565a5d6e",
   // 只负责给 /media/ 下的视频补 Range(206) 支持，其余请求不经过脚本
   "main": "worker/index.ts",
   "assets": {
@@ -15,6 +15,6 @@
   },
   // 绑定自定义域名（自动创建 DNS 记录和证书）
   "routes": [
-    { "pattern": "uwu.cat", "custom_domain": true }
+    { "pattern": "himicos.com", "custom_domain": true }
   ]
 }

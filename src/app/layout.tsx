@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "In a cat’s eyes, all things belong to dreams.",
-  description: "UWU.CAT — Uplift With Uniqueness . Cats Always Touch",
+  title: "The best software disappears into the gesture it’s for.",
+  description: "HIMICOS — How I Make Ideas Come Out Slowly",
 };
 
 export default function RootLayout({
