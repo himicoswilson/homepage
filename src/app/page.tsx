@@ -345,8 +345,8 @@ const BUTTERFLY_PIXEL_SVG = BUTTERFLY_RUNS.map(
 // swarm 里被光标拖来拖去、上色的那个 logo：和下面的 <Logo/> 同形同色同光晕，最后无缝换成真的
 const LOGO_SWARM = {
     svg: `<svg viewBox="0 0 123 123" fill="currentColor" shape-rendering="crispEdges">${BUTTERFLY_PIXEL_SVG}</svg>`,
-    color: "#ceff1c",
-    glow: "drop-shadow(0 0 12px rgba(206,255,28,0.45))",
+    color: "#5aa9ff",
+    glow: "drop-shadow(0 0 12px rgba(90,169,255,0.45))",
 };
 
 /**
@@ -396,7 +396,7 @@ function ClickPrompt() {
 
 const Logo = () => (
     <svg viewBox="0 0 123 123" aria-hidden="true" fill="currentColor" shapeRendering="crispEdges"
-         className="w-8 h-8 md:w-10 md:h-10 text-accent drop-shadow-[0_0_12px_rgba(206,255,28,0.45)]">
+         className="w-8 h-8 md:w-10 md:h-10 text-accent drop-shadow-[0_0_12px_rgba(90,169,255,0.45)]">
         {BUTTERFLY_RUNS.map((r, i) => (
             <rect key={i} x={r.x} y={r.y} width={r.w} height={BUTTERFLY_CELL_Y} />
         ))}
@@ -412,7 +412,7 @@ const Himi = ({delay = HIMI_DELAY}: { delay?: number }) => (
         aria-hidden="true"
     >
         <motion.span
-            className="block whitespace-nowrap font-bold text-accent drop-shadow-[0_0_12px_rgba(206,255,28,0.55)]"
+            className="block whitespace-nowrap font-bold text-accent drop-shadow-[0_0_12px_rgba(90,169,255,0.55)]"
             initial={{opacity: 0, scale: 0, rotate: 24, y: -8}}
             animate={{
                 opacity: [0, 1, 1, 1, 0],
@@ -751,7 +751,7 @@ export default function Home() {
                                     transition={{duration: 1.0, times: [0, 0.45, 1], ease: EASE_IN_OUT, delay: 0.1}}
                                 >
                                     <div className="grain absolute inset-0 opacity-[0.08] mix-blend-overlay"/>
-                                    <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_0%_0%,rgba(206,255,28,0.08),transparent_55%)]"/>
+                                    <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_0%_0%,rgba(90,169,255,0.08),transparent_55%)]"/>
                                     <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"/>
                                     <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"/>
                                     {/* 一次性的光泽扫过（swarm 开场时在电视亮起的那一下） */}
