@@ -854,7 +854,7 @@ export default function Home() {
                 )}
             </main>
             {/* Swarm 光标（基于 Joel Califa 的 Swarm），只由上面的开场调用：不显示悬浮按钮、不绑快捷键 */}
-            <Script src="/swarm-cursors.js" strategy="afterInteractive" data-trigger="none" data-hotkey=""/>
+            <Script src="/swarm-cursors.js?v=2" strategy="afterInteractive" data-trigger="none" data-hotkey=""/>
         </div>
     );
 }

@@ -85,7 +85,7 @@
   ];
   const COLORS = [
     "#F24E1E", "#A259FF", "#1ABCFE", "#5aa9ff", "#FF7262", "#FFC700",
-    "#9747FF", "#E8467C", "#7ab8ff", "#0D99FF", "#FF8A00", "#00B5CE",
+    "#9747FF", "#E8467C", "#7ab8ff", "#0D99FF", "#FF8A00", "#5aa9ff",
   ];
   const BLUE = "#0D99FF";
   const RED = "#F24822";
