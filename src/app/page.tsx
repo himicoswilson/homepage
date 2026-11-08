@@ -780,8 +780,6 @@ export default function Home() {
                                             {...fadeUp(1.3, animated)}
                                         >
                                             © BUTTERFLY@HIMICOS.COM
-                                            <br/>
-                                            not for sale, AI last.
                                         </motion.p>
                                     </div>
                                 </div>

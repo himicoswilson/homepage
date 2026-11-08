@@ -44,5 +44,3 @@ Deploys to himicos.com on every push to `main`. Add a repository secret `CLOUDFL
 **Exception:** the background video `public/media/kitten-540p.mp4` is a re-encode of
 [“Kitten, Game, Pets”](https://pixabay.com/videos/kitten-game-pets-4216/) by MixailMixail from Pixabay,
 used under the [Pixabay Content License](https://pixabay.com/service/license-summary/). It is **not** covered by CC BY-SA.
-
-*not for sale, AI last.*
