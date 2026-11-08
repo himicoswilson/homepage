@@ -396,7 +396,7 @@ function ClickPrompt() {
 
 const Logo = () => (
     <svg viewBox="0 0 123 123" aria-hidden="true" fill="currentColor" shapeRendering="crispEdges"
-         className="w-8 h-8 md:w-10 md:h-10 text-accent drop-shadow-[0_0_12px_rgba(90,169,255,0.45)]">
+         className="w-10 h-10 md:w-12 md:h-12 text-accent drop-shadow-[0_0_12px_rgba(90,169,255,0.45)]">
         {BUTTERFLY_RUNS.map((r, i) => (
             <rect key={i} x={r.x} y={r.y} width={r.w} height={BUTTERFLY_CELL_Y} />
         ))}
@@ -793,7 +793,7 @@ export default function Home() {
                                             {/* 标题：一直可见（方框隐藏时也是）；第二轮 swarm 里保留原样，不重画 */}
                                             <span
                                                 data-swarm-keep=""
-                                                className="inline-flex text-3xl md:text-4xl font-bold leading-[1.25] tracking-[0.02em]"
+                                                className="inline-flex text-3xl md:text-4xl font-bold leading-[1.1] tracking-[0.02em]"
                                                 style={{visibility: "visible"}}
                                             >
                                                 {splits.map(({first}, idx) => (
@@ -809,7 +809,7 @@ export default function Home() {
                                             </span>
                                         </div>
                                         <motion.p
-                                            className="mt-2 pl-10 md:pl-12 font-mono text-[11px] leading-relaxed tracking-wide text-white/50"
+                                            className="mt-2 pl-12 md:pl-14 font-mono text-[11px] leading-relaxed tracking-wide text-white/70"
                                             {...fadeUp(1.0, animated)}
                                         >
                                             Small wings, long distances.
@@ -825,7 +825,7 @@ export default function Home() {
                                     />
 
                                     {/* 右：链接 / 版权 */}
-                                    <div className="flex flex-col md:items-end gap-1.5 md:min-w-[9rem]">
+                                    <div className="flex flex-col justify-center md:items-end gap-2.5 md:min-w-[9rem]">
                                         {LINKS.map(({label, href}, i) => (
                                             <motion.a
                                                 key={label}
@@ -839,7 +839,6 @@ export default function Home() {
                                                 <ArrowIcon/>
                                             </motion.a>
                                         ))}
-                                        <div className="flex-1 min-h-3"/>
                                         <motion.p
                                             className="font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-white/35 md:text-right"
                                             {...fadeUp(1.3, animated)}
