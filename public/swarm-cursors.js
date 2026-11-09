@@ -1643,7 +1643,7 @@
 .logo.on{opacity:1}
 .logo>i{position:absolute;inset:0;display:block}
 .logo>i>svg{display:block;width:100%;height:100%;overflow:visible}
-.logo>.g{color:#D7DADE;opacity:.42}
+.logo>.g{color:#D7DADE;opacity:.42;filter:grayscale(1)}
 .logo::before,.logo::after{content:"";position:absolute;left:50%;top:50%;width:100%;height:100%;border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%)}
 .logo.clickable{pointer-events:auto;cursor:pointer}
 .logo.clickable::after{border:1.5px solid rgba(90,169,255,.6);animation:logoping 2.2s cubic-bezier(.2,.7,.3,1) infinite}

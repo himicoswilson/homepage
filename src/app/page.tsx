@@ -267,84 +267,10 @@ const WordsLine = ({fontSize}: { fontSize: number }) => (
     </div>
 );
 
-// 像素蝴蝶 logo：按 Pixilart 社区的一只像素蝴蝶重画的 49×49 网格，单色
-// 参考：https://www.pixilart.com/art/butterfly-c60cb0eebc1606e
-const BUTTERFLY_GRID = [
-    "..............####.............####..............",
-    "..............####.............####..............",
-    "................#####.......#####................",
-    "................#####.......#####................",
-    "...................##.......##...................",
-    "...................##.......##...................",
-    ".######............##.......##............######.",
-    ".##########........####...####........##########.",
-    ".##########........####...####........##########.",
-    ".#############.......##...##.......#############.",
-    ".#############.......##...##.......#############.",
-    "################.....##...##.....################",
-    "################.....##...##.....################",
-    "##################...##...##...##################",
-    "##################...##...##...##################",
-    "#################################################",
-    "#################################################",
-    ".###############################################.",
-    ".###############################################.",
-    ".###############################################.",
-    ".###############################################.",
-    ".###############################################.",
-    ".###############################################.",
-    ".###############################################.",
-    "...###########################################...",
-    "...###########################################...",
-    "...###########################################...",
-    "...###########################################...",
-    "...###########################################...",
-    "...###########################################...",
-    ".....#######################################.....",
-    ".....#######################################.....",
-    "..........#############################..........",
-    "..........#############################..........",
-    ".........###############################.........",
-    ".........###############################.........",
-    ".........###############################.........",
-    ".........###############################.........",
-    ".........###############################.........",
-    ".........###############################.........",
-    ".........###############################.........",
-    ".........###############################.........",
-    ".........###############################.........",
-    "..........#############...#############..........",
-    "..........#############...#############..........",
-    "............#########.......#########............",
-    "............#########.......#########............",
-    "..............#######.......#######..............",
-    "..............#######.......#######..............",
-];
-// 横向拉宽 10%：像素格子从正方形拉成宽矩形
-const BUTTERFLY_WIDE = 1.1;
-const BUTTERFLY_CELL_X = 123 / BUTTERFLY_GRID.length;
-const BUTTERFLY_CELL_Y = BUTTERFLY_CELL_X / BUTTERFLY_WIDE;
-const BUTTERFLY_Y_OFF = (123 - BUTTERFLY_GRID.length * BUTTERFLY_CELL_Y) / 2;
-// 横向合并连续格子，减少 rect 数量
-const BUTTERFLY_RUNS: { x: number; y: number; w: number }[] = [];
-BUTTERFLY_GRID.forEach((row, y) => {
-    let x = 0;
-    while (x < row.length) {
-        if (row[x] === "#") {
-            const x0 = x;
-            while (x < row.length && row[x] === "#") x++;
-            BUTTERFLY_RUNS.push({x: x0 * BUTTERFLY_CELL_X, y: y * BUTTERFLY_CELL_Y + BUTTERFLY_Y_OFF, w: (x - x0) * BUTTERFLY_CELL_X});
-        } else {
-            x++;
-        }
-    }
-});
-const BUTTERFLY_PIXEL_SVG = BUTTERFLY_RUNS.map(
-    (r) => `<rect x="${r.x.toFixed(2)}" y="${r.y.toFixed(2)}" width="${r.w.toFixed(2)}" height="${BUTTERFLY_CELL_Y.toFixed(2)}"/>`
-).join("");
-// swarm 里被光标拖来拖去、上色的那个 logo：和下面的 <Logo/> 同形同色同光晕，最后无缝换成真的
+// logo 直接用 🦋 emoji：开场 swarm 里被光标拖来拖去、上色的就是它，和下面的 <Logo/> 同形，最后无缝换成真的
+// emoji 放在 <text> 里；灰色层靠 public/swarm-cursors.js 里 .logo>.g 的 grayscale(1) 变灰
 const LOGO_SWARM = {
-    svg: `<svg viewBox="0 0 123 123" fill="currentColor" shape-rendering="crispEdges">${BUTTERFLY_PIXEL_SVG}</svg>`,
+    svg: `<svg viewBox="0 0 123 123"><text x="61.5" y="68" font-size="104" text-anchor="middle" dominant-baseline="central">🦋</text></svg>`,
     color: "#5aa9ff",
     glow: "drop-shadow(0 0 12px rgba(90,169,255,0.45))",
 };
@@ -395,12 +321,8 @@ function ClickPrompt() {
 }
 
 const Logo = () => (
-    <svg viewBox="0 0 123 123" aria-hidden="true" fill="currentColor" shapeRendering="crispEdges"
-         className="w-10 h-10 md:w-12 md:h-12 text-accent drop-shadow-[0_0_12px_rgba(90,169,255,0.45)]">
-        {BUTTERFLY_RUNS.map((r, i) => (
-            <rect key={i} x={r.x} y={r.y} width={r.w} height={BUTTERFLY_CELL_Y} />
-        ))}
-    </svg>
+    <span data-logo aria-hidden="true"
+         className="grid h-10 w-10 place-items-center text-[2.5rem] leading-none drop-shadow-[0_0_12px_rgba(90,169,255,0.45)] md:h-12 md:w-12 md:text-[3rem]">🦋</span>
 );
 
 /** 大标题右上角弹出的 Himi~：弹性冒出 → 轻微晃动 → 下沉模糊消失（整体向右下倾斜） */
@@ -563,7 +485,7 @@ export default function Home() {
             };
             // 方框里真 logo 的位置和大小（方框隐藏时也已经排好版）
             const home = () => {
-                const r = logoRef.current?.querySelector("svg")?.getBoundingClientRect();
+                const r = logoRef.current?.querySelector("[data-logo]")?.getBoundingClientRect();
                 return r ? {x: r.left + r.width / 2, y: r.top + r.height / 2, size: r.width} : parked();
             };
             // 光标拍 HIMICOS 的位置：右半边、偏上（Himi~ 从右上角冒出来）
@@ -786,7 +708,7 @@ export default function Home() {
                                                 initial={animated ? {opacity: 0, scale: 0.4, rotate: -180} : false}
                                                 animate={{opacity: 1, scale: 1, rotate: 0}}
                                                 transition={{type: "spring", stiffness: 140, damping: 16, delay: 0.85}}
-                                                whileHover={{rotate: 90}}
+                                                whileHover={{scale: 1.1}}
                                             >
                                                 <Logo/>
                                             </motion.div>
@@ -853,7 +775,7 @@ export default function Home() {
                 )}
             </main>
             {/* Swarm 光标（基于 Joel Califa 的 Swarm），只由上面的开场调用：不显示悬浮按钮、不绑快捷键 */}
-            <Script src="/swarm-cursors.js?v=2" strategy="afterInteractive" data-trigger="none" data-hotkey=""/>
+            <Script src="/swarm-cursors.js?v=3" strategy="afterInteractive" data-trigger="none" data-hotkey=""/>
         </div>
     );
 }
